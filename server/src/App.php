@@ -22,8 +22,8 @@ class App
 
     public function run()
     {
-        $data = iterator_to_array($this->imdRepository->find([
-            'Local Authority District name (2019)' => 'City of London',
+        $data = iterator_to_array($this->imdRepository->findByLsoa([
+           ['E01000005']
         ]));
 
         $json = json_encode($data);
