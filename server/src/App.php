@@ -22,9 +22,11 @@ class App
 
     public function run()
     {
-        $data = iterator_to_array($this->imdRepository->find([
-            'Local Authority District name (2019)' => 'City of London',
-        ]));
+        $postcode = $_GET['postcode'];
+
+        $lsoas = ['E01000005'];
+
+        $data = iterator_to_array($this->imdRepository->findByLsoa($lsoas));
 
         $json = json_encode($data);
 

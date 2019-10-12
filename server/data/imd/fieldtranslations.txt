@@ -1,57 +1,57 @@
-LSOA code (2011)
-LSOA name (2011)
-Local Authority District code (2019)
-Local Authority District name (2019)
-Index of Multiple Deprivation (IMD) Score
-Index of Multiple Deprivation (IMD) Rank (where 1 is most deprived)
-Index of Multiple Deprivation (IMD) Decile (where 1 is most deprived 10% of LSOAs)
-Income Score (rate)
-Income Rank (where 1 is most deprived)
-Income Decile (where 1 is most deprived 10% of LSOAs)
-Employment Score (rate)
-Employment Rank (where 1 is most deprived)
-Employment Decile (where 1 is most deprived 10% of LSOAs)
-Education Skills and Training Score
-Education Skills and Training Rank (where 1 is most deprived)
-Education Skills and Training Decile (where 1 is most deprived 10% of LSOAs)
-Health Deprivation and Disability Score
-Health Deprivation and Disability Rank (where 1 is most deprived)
-Health Deprivation and Disability Decile (where 1 is most deprived 10% of LSOAs)
-Crime Score
-Crime Rank (where 1 is most deprived)
-Crime Decile (where 1 is most deprived 10% of LSOAs)
-Barriers to Housing and Services Score
-Barriers to Housing and Services Rank (where 1 is most deprived)
-Barriers to Housing and Services Decile (where 1 is most deprived 10% of LSOAs)
-Living Environment Score
-Living Environment Rank (where 1 is most deprived)
-Living Environment Decile (where 1 is most deprived 10% of LSOAs)
-Income Deprivation Affecting Children Index (IDACI) Score (rate)
-Income Deprivation Affecting Children Index (IDACI) Rank (where 1 is most deprived)
-Income Deprivation Affecting Children Index (IDACI) Decile (where 1 is most deprived 10% of LSOAs)
-Income Deprivation Affecting Older People (IDAOPI) Score (rate)
-Income Deprivation Affecting Older People (IDAOPI) Rank (where 1 is most deprived)
-Income Deprivation Affecting Older People (IDAOPI) Decile (where 1 is most deprived 10% of LSOAs)
-Children and Young People Sub-domain Score
-Children and Young People Sub-domain Rank (where 1 is most deprived)
-Children and Young People Sub-domain Decile (where 1 is most deprived 10% of LSOAs)
-Adult Skills Sub-domain Score
-Adult Skills Sub-domain Rank (where 1 is most deprived)
-Adult Skills Sub-domain Decile (where 1 is most deprived 10% of LSOAs)
-Geographical Barriers Sub-domain Score
-Geographical Barriers Sub-domain Rank (where 1 is most deprived)
-Geographical Barriers Sub-domain Decile (where 1 is most deprived 10% of LSOAs)
-Wider Barriers Sub-domain Score
-Wider Barriers Sub-domain Rank (where 1 is most deprived)
-Wider Barriers Sub-domain Decile (where 1 is most deprived 10% of LSOAs)
-Indoors Sub-domain Score
-Indoors Sub-domain Rank (where 1 is most deprived)
-Indoors Sub-domain Decile (where 1 is most deprived 10% of LSOAs)
-Outdoors Sub-domain Score
-Outdoors Sub-domain Rank (where 1 is most deprived)
-Outdoors Sub-domain Decile (where 1 is most deprived 10% of LSOAs)
-Total population: mid 2015 (excluding prisoners)
-Dependent Children aged 0-15: mid 2015 (excluding prisoners)
-Population aged 16-59: mid 2015 (excluding prisoners)
-Older population aged 60 and over: mid 2015 (excluding prisoners)
-Working age population 18-59/64: for use with Employment Deprivation Domain (excluding prisoners)
+lsoa
+lsoa_name
+local_authority_district_code
+local_authority_district_name
+index_of_multiple_deprivation_score
+imd_rank
+imd_decile
+income_score
+income_rank
+income_decile
+employment_score
+employment_rank
+employment_decile
+education_skills_and_training_score
+education_rank
+education_decile
+health_deprivation_and_disability_score
+health_rank
+health_decile
+crime_score
+crime_rank
+crime_decile
+barriers_to_housing_and_services_score
+housing_rank
+housing_decile
+living_environment_score
+environment_rank
+environment_decile
+income_deprivation_affecting_children_index_(idaci)_score_(rate)
+child_rank
+child_decile
+income_deprivation_affecting_older_people_(idaopi)_score_(rate)
+older_rank
+older_decile
+children_and_young_people_sub-domain_score
+children_and_young_people_sub-domain_rank_(where_1_is_most_deprived)
+children_and_young_people_sub-domain_decile_(where_1_is_most_deprived_10%_of_lsoas)
+adult_skills_sub-domain_score
+adult_skills_sub-domain_rank_(where_1_is_most_deprived)
+adult_skills_sub-domain_decile_(where_1_is_most_deprived_10%_of_lsoas)
+geographical_barriers_sub-domain_score
+geographical_barriers_sub-domain_rank_(where_1_is_most_deprived)
+geographical_barriers_sub-domain_decile_(where_1_is_most_deprived_10%_of_lsoas)
+wider_barriers_sub-domain_score
+wider_barriers_sub-domain_rank_(where_1_is_most_deprived)
+wider_barriers_sub-domain_decile_(where_1_is_most_deprived_10%_of_lsoas)
+indoors_sub-domain_score
+indoors_sub-domain_rank_(where_1_is_most_deprived)
+indoors_sub-domain_decile_(where_1_is_most_deprived_10%_of_lsoas)
+outdoors_sub-domain_score
+outdoors_sub-domain_rank_(where_1_is_most_deprived)
+outdoors_sub-domain_decile_(where_1_is_most_deprived_10%_of_lsoas)
+total_population:_mid_2015_(excluding_prisoners)
+dependent_children_aged_0-15:_mid_2015_(excluding_prisoners)
+population_aged_16-59:_mid_2015_(excluding_prisoners)
+older_population_aged_60_and_over:_mid_2015_(excluding_prisoners)
+working_age_population_18-59/64:_for_use_with_employment_deprivation_domain_(excluding_prisoners)
