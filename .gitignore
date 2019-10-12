@@ -2,6 +2,7 @@
 .idea
 
 dist
+tmp
 node_modules
 /server/vendor/
 /server/data/postcodes/ONSPD_MAY_2019_UK.csv
