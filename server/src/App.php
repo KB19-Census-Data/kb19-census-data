@@ -22,6 +22,8 @@ class App
 
     public function run()
     {
+        $postcode = $_GET['postcode'];
+
         $data = iterator_to_array($this->imdRepository->find([
             'Local Authority District name (2019)' => 'City of London',
         ]));
