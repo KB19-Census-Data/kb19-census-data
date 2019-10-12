@@ -13,7 +13,7 @@ $database = $client->selectDatabase($dbName);
 $imdCollection = $database->selectCollection("imd");
 $postcodeCollection = $database->selectCollection("postcode");
 
-$data = ['a' => 1, 'b' => 2];
+$data = iterator_to_array($imdCollection->find([]));
 
 $json = json_encode($data);
 
