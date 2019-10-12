@@ -116,6 +116,16 @@ document.getElementById('submit').addEventListener('click', e => {
         } else {
           document.getElementById('lsoa-name').innerHTML = 'No data';
         }
+      renderLsoaDetail(lmdData, 'imd');
+      renderLsoaDetail(lmdData, 'income');
+      renderLsoaDetail(lmdData, 'education');
+      renderLsoaDetail(lmdData, 'employment');
+      renderLsoaDetail(lmdData, 'environment');
+      renderLsoaDetail(lmdData, 'health');
+      renderLsoaDetail(lmdData, 'crime');
+      renderLsoaDetail(lmdData, 'housing');
+      renderLsoaDetail(lmdData, 'child');
+      renderLsoaDetail(lmdData, 'older');
 
         renderLsoaDetail(lmdData, 'imd');
         renderLsoaDetail(lmdData, 'income');
