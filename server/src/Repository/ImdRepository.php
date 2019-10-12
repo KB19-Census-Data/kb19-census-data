@@ -18,7 +18,7 @@ class ImdRepository
     public function findByLsoa(array $lsoas)
     {
         return $this->imdCollection->find(
-            ['LSOA code (2011)' => ['$in' => $lsoas]]
+            ['lsoa' => ['$in' => $lsoas]]
         );
     }
 }
