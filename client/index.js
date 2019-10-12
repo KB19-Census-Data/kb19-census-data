@@ -196,3 +196,15 @@ function renderLsoaDetail(imdData, dataKey) {
 function formatNumber(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
+
+var radioButtons = document.getElementsByClassName('radio-data-key');
+for (var i=0; i < radioButtons.length; i++) {
+  radioButtons[i].addEventListener("click", function (e) {
+    console.log(e.target.value);
+    imdDataKey = e.target.value + '_decile';
+
+    if (vectorLayer) {
+      vectorLayer.getSource().changed();
+    }
+  });
+}
