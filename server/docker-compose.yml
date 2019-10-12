@@ -1,0 +1,25 @@
+version: '3.7'
+
+volumes:
+    logs:
+        driver: local
+
+services:
+    web:
+        build:
+            context: .
+            dockerfile: Dockerfile-php
+        working_dir: /var/www
+        command: php -S 0.0.0.0:8080 -t public
+        ports:
+            - 8080:8080
+        volumes:
+            - .:/var/www
+    db:
+        image: mongo:3.6
+        ports:
+            - 27018:27017
+        volumes:
+            - .:/var/www
+
+

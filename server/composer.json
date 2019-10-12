@@ -1,0 +1,11 @@
+{
+    "name": "cap/censusdata-server",
+    "require": {
+        "mongodb/mongodb": "^1.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "KingdomCode\\CensusData\\": "src"
+        }
+    }
+}
