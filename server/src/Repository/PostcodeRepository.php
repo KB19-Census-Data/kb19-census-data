@@ -17,7 +17,7 @@ class PostcodeRepository
 
     public function getLSOAsNearCoordinates(array $query)
     {
-        lsoa11
+//        lsoa11
 //        return $this->postcodeCollection->find($query);
     }
 
@@ -29,8 +29,8 @@ class PostcodeRepository
             'pcd' => $postcode,
         ]);
         return [
-            'lat' => $postcode['lat'],
-            'long' => $postcode['long'],
+            'lat' => $postcodeRec['lat'],
+            'long' => $postcodeRec['long'],
         ];
     }
 }
