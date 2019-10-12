@@ -27,14 +27,17 @@
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           <span>Search by Postcode</span>
         </h6>
-        <form class="form-inline px-3">
+
+        <div class="form-inline px-3">
           <div class="input-group">
-            <input class="form-control" type="search" placeholder="Postcode" aria-label="Search">
+            <input id="postcode" class="form-control" placeholder="Postcode" aria-label="Search">
             <div class="input-group-append">
-              <span class="input-group-text fa fa-search" id="basic-addon1"></span>
+              <button class="btn btn-success" id="submit">
+                  <span class="fa fa-search" id="basic-addon1"></span>
+              </button>
             </div>
           </div>
-        </form>
+        </div>
 
         <div id="lsoa-detail-panel" class="invisible">
           <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -52,6 +55,114 @@
                 23.5%
               </span>
               <span class="data-detail" id="imd-detail">
+                12,345/34,753 <br>
+                Most Deprived
+              </span>
+            </dd>
+
+            <dt class="col-sm-3">Income</dt>
+            <dd class="col-sm-9" id="income-result">
+              <i class="fa fa-circle icon-decile"></i>
+              <span class="data-percentile" id="income-percentile">
+                23.5%
+              </span>
+              <span class="data-detail" id="income-detail">
+                12,345/34,753 <br>
+                Most Deprived
+              </span>
+            </dd>
+
+            <dt class="col-sm-3">Education</dt>
+            <dd class="col-sm-9" id="education-result">
+              <i class="fa fa-circle icon-decile"></i>
+              <span class="data-percentile" id="education-percentile">
+                23.5%
+              </span>
+              <span class="data-detail" id="education-detail">
+                12,345/34,753 <br>
+                Most Deprived
+              </span>
+            </dd>
+
+            <dt class="col-sm-3">Employment</dt>
+            <dd class="col-sm-9" id="employment-result">
+              <i class="fa fa-circle icon-decile"></i>
+              <span class="data-percentile" id="employment-percentile">
+                23.5%
+              </span>
+              <span class="data-detail" id="employment-detail">
+                12,345/34,753 <br>
+                Most Deprived
+              </span>
+            </dd>
+
+            <dt class="col-sm-3">Environment</dt>
+            <dd class="col-sm-9" id="environment-result">
+              <i class="fa fa-circle icon-decile"></i>
+              <span class="data-percentile" id="environment-percentile">
+                23.5%
+              </span>
+              <span class="data-detail" id="environment-detail">
+                12,345/34,753 <br>
+                Most Deprived
+              </span>
+            </dd>
+
+            <dt class="col-sm-3">Health</dt>
+            <dd class="col-sm-9" id="health-result">
+              <i class="fa fa-circle icon-decile"></i>
+              <span class="data-percentile" id="health-percentile">
+                23.5%
+              </span>
+              <span class="data-detail" id="health-detail">
+                12,345/34,753 <br>
+                Most Deprived
+              </span>
+            </dd>
+
+            <dt class="col-sm-3">Crime</dt>
+            <dd class="col-sm-9" id="crime-result">
+              <i class="fa fa-circle icon-decile"></i>
+              <span class="data-percentile" id="crime-percentile">
+                23.5%
+              </span>
+              <span class="data-detail" id="crime-detail">
+                12,345/34,753 <br>
+                Most Deprived
+              </span>
+            </dd>
+
+            <dt class="col-sm-3">Housing</dt>
+            <dd class="col-sm-9" id="housing-result">
+              <i class="fa fa-circle icon-decile"></i>
+              <span class="data-percentile" id="housing-percentile">
+                23.5%
+              </span>
+              <span class="data-detail" id="housing-detail">
+                12,345/34,753 <br>
+                Most Deprived
+              </span>
+            </dd>
+
+            <dt class="col-sm-3">Child</dt>
+            <dd class="col-sm-9" id="child-result">
+              <i class="fa fa-circle icon-decile"></i>
+              <span class="data-percentile" id="child-percentile">
+                23.5%
+              </span>
+              <span class="data-detail" id="child-detail">
+                12,345/34,753 <br>
+                Most Deprived
+              </span>
+            </dd>
+
+            <dt class="col-sm-3">Older</dt>
+            <dd class="col-sm-9" id="older-result">
+              <i class="fa fa-circle icon-decile"></i>
+              <span class="data-percentile" id="older-percentile">
+                23.5%
+              </span>
+              <span class="data-detail" id="older-detail">
                 12,345/34,753 <br>
                 Most Deprived
               </span>
