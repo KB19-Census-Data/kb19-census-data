@@ -8,15 +8,29 @@ use MongoDB\Database;
 
 class PostcodeRepository
 {
-    private $imdCollection;
+    private $postcodeCollection;
 
     public function __construct(Database $database)
     {
-        $this->imdCollection = $database->selectCollection('imd');
+        $this->postcodeCollection = $database->selectCollection('postcodes');
     }
 
-    public function find(array $query)
+    public function getLSOAsNearCoordinates(array $query)
     {
-        return $this->imdCollection->find($query);
+        lsoa11
+//        return $this->postcodeCollection->find($query);
+    }
+
+    public function getCoordinatesForPostcode(string $postcode)
+    {
+        // TODO deal with spaces
+        // TODO deal with case
+        $postcodeRec = $this->postcodeCollection->findOne([
+            'pcd' => $postcode,
+        ]);
+        return [
+            'lat' => $postcode['lat'],
+            'long' => $postcode['long'],
+        ];
     }
 }
