@@ -86,18 +86,25 @@ var map = new Map({
   })
 });
 
+var vectorLayer;
+
 document.getElementById('submit').addEventListener('click', e => {
   e.preventDefault();
-  console.log(document.getElementById('postcode').value)
+  const postcode = document.getElementById('postcode').value;
 
-  getGeoJson().then(({ imds, geojson}) => {
+  if(vectorLayer) {
+    map.removeLayer(vectorLayer);
+  }
+
+  getGeoJson(postcode).then(({ imds, geojson}) => {
     lmd = imds;
     var features = (new GeoJSON()).readFeatures(geojson);
     var vectorSource = new VectorSource({
       // features: (new GeoJSON()).readFeatures(geojsonObject)
       features: features
     });
-    var vectorLayer = new VectorLayer({
+
+    vectorLayer = new VectorLayer({
       source: vectorSource,
       style: styleFunction
     });
