@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace KingdomCode\CensusData;
+use http\Exception\InvalidArgumentException;
 use KingdomCode\CensusData\Factory\DatabaseFactory;
 use KingdomCode\CensusData\Repository\ImdRepository;
 use KingdomCode\CensusData\Repository\PostcodeRepository;
@@ -23,8 +24,16 @@ class App
     public function run()
     {
         $postcode = $_GET['postcode'];
+        if (!$this->isValidPostcode($postcode)) {
+            throw new InvalidArgumentException();
+        }
 
+<<<<<<< Updated upstream
         $lsoas = ['E01000005', 'E01000006'];
+=======
+        //TODO replace with call to retrieve LSOAs within a range of the $postcode
+        $lsoas = ['E01000005'];
+>>>>>>> Stashed changes
 
         $data = iterator_to_array($this->imdRepository->findByLsoa($lsoas));
 
@@ -33,5 +42,11 @@ class App
         header('Content-Type: application/json');
 
         echo($json);
+    }
+
+    private function isValidPostcode($postcode): bool
+    {
+        $postcodeFinder = new PostcodesIO();
+        return is_null($postcodeFinder->validate($postcode));
     }
 }
