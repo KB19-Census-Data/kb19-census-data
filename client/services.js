@@ -15,6 +15,7 @@ export function getGeoJson (postcode) {
     }
   })
   .then(({ imds, lsoas }) => {
+    console.log(imds);
     return axios.get(queryforLsoas(lsoas)).then(({ data }) => ({
       imds,
       geojson: data
