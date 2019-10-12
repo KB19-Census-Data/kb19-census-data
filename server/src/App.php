@@ -39,6 +39,19 @@ class App
         );
         $lsoas = $this->postcodeRepository->getLSOAsForPostcodes($nearPostcodes);
 
+        $lsoas = [
+            'E01000043',
+            'E01000044',
+            'E01000045',
+            'E01000046',
+            'E01000047',
+            'E01000048',
+            'E01000049',
+            'E01000050',
+            'E01000051',
+            'E01000052',
+        ];
+
         $data = iterator_to_array($this->imdRepository->findByLsoa($lsoas));
 
         $json = json_encode($data);
