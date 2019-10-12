@@ -24,9 +24,9 @@ class App
     {
         $postcode = $_GET['postcode'];
 
-        $data = iterator_to_array($this->imdRepository->findByLsoa([
-           ['E01000005']
-        ]));
+        $lsoas = ['E01000005'];
+
+        $data = iterator_to_array($this->imdRepository->findByLsoa($lsoas));
 
         $json = json_encode($data);
 
