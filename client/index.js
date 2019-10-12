@@ -9,15 +9,21 @@ import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer';
 import {OSM, Vector as VectorSource} from 'ol/source';
 import {Circle as CircleStyle, Fill, Stroke, Style} from 'ol/style';
 import { getGeoJson } from './services';
-
-var image = new CircleStyle({
-  radius: 5,
-  fill: null,
-  stroke: new Stroke({color: 'red', width: 1})
-});
+var imdDataKey = 'imd_decile';
 
 var lmd = [];
 
+function buildShadeStyle(color, stroke) {
+  return new Style({
+    stroke: new Stroke({
+      color: stroke || 'black',
+      width: 1
+    }),
+    fill: new Fill({
+      color: color,
+    }),
+  });
+}
 var styles = {
   'Polygon': new Style({
     stroke: new Stroke({
@@ -28,58 +34,24 @@ var styles = {
       color: 'rgba(0, 0, 255, 0.5)'
     })
   }),
-  'Shade1': new Style({
-    stroke: new Stroke({
-      color: '#99252e',
-      width: 1,
-    }),
-    fill: new Fill({
-      color: '#99252333'
-    })
-  }),
-  'Shade2': new Style({
-    stroke: new Stroke({
-      color: '#99252e',
-      width: 1,
-    }),
-    fill: new Fill({
-      color: '#99252355'
-    })
-  }),
-  'Shade3': new Style({
-    stroke: new Stroke({
-      color: '#99252e',
-      width: 1,
-    }),
-    fill: new Fill({
-      color: '#99252377'
-    })
-  }),
-  'Shade4': new Style({
-    stroke: new Stroke({
-      color: '#99252e',
-      width: 1,
-    }),
-    fill: new Fill({
-      color: '#99252399'
-    })
-  }),
-  'Shade5': new Style({
-    stroke: new Stroke({
-      color: '#99252e',
-      width: 1,
-    }),
-    fill: new Fill({
-      color: '#992523bb'
-    })
-  })
+  'Shade1': buildShadeStyle('#dc354588'),
+  'Shade2': buildShadeStyle('#e4606d88'),
+  'Shade3': buildShadeStyle('#eb8c9588'),
+  'Shade4': buildShadeStyle('#f3b7bd88'),
+  'Shade5': buildShadeStyle('#f6cdd188'),
+  'Shade6': buildShadeStyle('#afecbd88'),
+  'Shade7': buildShadeStyle('#86e29b88'),
+  'Shade8': buildShadeStyle('#5dd87988'),
+  'Shade9': buildShadeStyle('#34ce5788'),
+  'Shade10': buildShadeStyle('#28a74588'),
 };
 
 var styleFunction = function(feature) {
-  //todo: based on IMD data, select the correct shade
-  console.log(feature);
-  if (feature.values_ && feature.values_.lsoa01cd === 'E01000001') {
-    return styles['Shade1'];
+  let values = feature.values_;
+  let lsoaCode = values.lsoa01cd;
+  var lmdData = lmd.find((lmd) => lmd.lsoa === lsoaCode);
+  if (lmdData) {
+    return styles['Shade' + lmdData[imdDataKey]];
   }
 
   return styles['Shade5'];
@@ -99,7 +71,16 @@ getGeoJson().then(({ imds, geojson}) => {
 
   // Interaction / Event Handlers
   var select = new Select({
-    condition: click
+    condition: click,
+    style: new Style({
+      stroke: new Stroke({
+        color: '#4a49ff',
+        width: 1,
+      }),
+      fill: new Fill({
+        color: '#4a49ff88',
+      }),
+    }),
   });
 
   var map = new Map({
