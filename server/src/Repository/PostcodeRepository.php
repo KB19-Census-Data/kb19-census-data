@@ -18,12 +18,6 @@ class PostcodeRepository
         $this->database = $database;
     }
 
-    public function getLSOAsNearCoordinates(array $query)
-    {
-//        lsoa11
-//        return $this->postcodeCollection->find($query);
-    }
-
     public function getCoordinatesForPostcode(string $postcode): array
     {
         // TODO deal with spaces
