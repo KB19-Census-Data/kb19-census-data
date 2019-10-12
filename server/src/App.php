@@ -35,7 +35,7 @@ class App
             $coordinates['lat'],
             $coordinates['long'],
             2,
-            5
+            100
         );
         $lsoas = $this->postcodeRepository->getLSOAsForPostcodes($nearPostcodes);
 
