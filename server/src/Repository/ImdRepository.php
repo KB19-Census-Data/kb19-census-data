@@ -15,8 +15,10 @@ class ImdRepository
         $this->imdCollection = $database->selectCollection('imd');
     }
 
-    public function find(array $query)
+    public function findByLsoa(array $lsoas)
     {
-        return $this->imdCollection->find($query);
+        return $this->imdCollection->find(
+            ['LSOA code (2011)' => ['$in' => $lsoas]]
+        );
     }
 }
