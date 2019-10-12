@@ -1,0 +1,6 @@
+{
+    "name": "cap/censusdata-server",
+    "require": {
+        "mongodb/mongodb": "^1.5"
+    }
+}
