@@ -24,7 +24,7 @@ class App
     {
         $postcode = $_GET['postcode'];
 
-        $lsoas = ['E01000005'];
+        $lsoas = ['E01000005', 'E01000006'];
 
         $data = iterator_to_array($this->imdRepository->findByLsoa($lsoas));
 
