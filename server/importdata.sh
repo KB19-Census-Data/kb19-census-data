@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-mongoimport -d kbdb -c imd --type csv --file ./data/imd/imd.csv --fieldFile=./data/imd/fieldtranslations.txt
+mongoimport -d kbdb -c imd --type csv --file /var/www/data/imd/imd.csv --fieldFile=/var/www/data/imd/fieldtranslations.txt
