@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 namespace KingdomCode\CensusData;
-use http\Exception\InvalidArgumentException;
+use Jabranr\PostcodesIO\PostcodesIO;
 use KingdomCode\CensusData\Factory\DatabaseFactory;
 use KingdomCode\CensusData\Repository\ImdRepository;
 use KingdomCode\CensusData\Repository\PostcodeRepository;
@@ -23,13 +23,21 @@ class App
 
     public function run()
     {
-        $postcode = $_GET['postcode'];
-        if (!$this->isValidPostcode($postcode)) {
-            throw new InvalidArgumentException();
-        }
+        $postcode = urldecode($_GET['postcode']);
+//        if (!$this->isValidPostcode($postcode)) {
+//            throw new \InvalidArgumentException();
+//        }
+//        die($postcode);
 
-        //TODO replace with call to retrieve LSOAs within a range of the $postcode
-        $lsoas = ['E01000005', 'E01000006'];
+        $postcode = 'E1  0AB';
+        $coordinates = $this->postcodeRepository->getCoordinatesForPostcode($postcode);
+        $nearPostcodes = $this->postcodeRepository->getPostcodeRecsNearCoordinates(
+            $coordinates['lat'],
+            $coordinates['long'],
+            2,
+            5
+        );
+        $lsoas = $this->postcodeRepository->getLSOAsForPostcodes($nearPostcodes);
 
         $data = iterator_to_array($this->imdRepository->findByLsoa($lsoas));
 

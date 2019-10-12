@@ -60,7 +60,7 @@ class PostcodeRepository
         return $postcodes;
     }
 
-    public function getLSOAsForPostcodes(array $postcodes)
+    public function getLSOAsForPostcodes(array $postcodes): array
     {
         $cursor = $this->postcodeCollection->find([
             'pcd' => ['$in' => $postcodes],
