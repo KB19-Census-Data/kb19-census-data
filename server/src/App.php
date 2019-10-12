@@ -22,6 +22,8 @@ class App
 
     public function run()
     {
+        $postcode = $_GET['postcode'];
+
         $data = iterator_to_array($this->imdRepository->findByLsoa([
            ['E01000005']
         ]));
