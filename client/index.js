@@ -81,8 +81,8 @@ var map = new Map({
   ],
   target: 'map',
   view: new View({
-    center: fromLonLat([-0.127758, 51.507351]),
-    zoom: 12
+    center: fromLonLat([0.094623, 51.531735]),
+    zoom: 15
   })
 });
 
