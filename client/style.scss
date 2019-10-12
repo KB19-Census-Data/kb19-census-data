@@ -18,3 +18,35 @@ main {
   width: 100%;
   height:100vh;
 }
+
+#lsoa-detail-panel-content {
+  dd {
+    text-align: right;
+  }
+
+  .data-percentile {
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+  .data-detail {
+    display: block;
+    color: $text-muted;
+  }
+
+  .decile-10 .icon-decile { color: $danger; }
+  .decile-20 .icon-decile { color: lighten($danger, 10%); }
+  .decile-30 .icon-decile { color: lighten($danger, 20%); }
+  .decile-40 .icon-decile { color: lighten($danger, 30%); }
+  .decile-50 .icon-decile { color: lighten($danger, 35%); }
+  .decile-60 .icon-decile { color: lighten($success, 40%); }
+  .decile-70 .icon-decile { color: lighten($success, 30%); }
+  .decile-80 .icon-decile { color: lighten($success, 20%); }
+  .decile-90 .icon-decile { color: lighten($success, 10%); }
+  .decile-100 .icon-decile { color: lighten($success, 0%); }
+
+  .icon-decile { display: none; }
+  .decile-10, .decile-20, .decile-30, .decile-40, .decile-50,
+  .decile-60, .decile-70, .decile-80, .decile-90, .decile-100 {
+    .icon-decile { display: initial; }
+  }
+}
