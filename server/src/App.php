@@ -28,12 +28,8 @@ class App
             throw new InvalidArgumentException();
         }
 
-<<<<<<< Updated upstream
-        $lsoas = ['E01000005', 'E01000006'];
-=======
         //TODO replace with call to retrieve LSOAs within a range of the $postcode
-        $lsoas = ['E01000005'];
->>>>>>> Stashed changes
+        $lsoas = ['E01000005', 'E01000006'];
 
         $data = iterator_to_array($this->imdRepository->findByLsoa($lsoas));
 
