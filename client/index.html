@@ -27,14 +27,17 @@
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
           <span>Search by Postcode</span>
         </h6>
-        <form class="form-inline px-3">
+
+        <div class="form-inline px-3">
           <div class="input-group">
-            <input class="form-control" type="search" placeholder="Postcode" aria-label="Search">
+            <input id="postcode" class="form-control" placeholder="Postcode" aria-label="Search">
             <div class="input-group-append">
-              <span class="input-group-text fa fa-search" id="basic-addon1"></span>
+              <button class="btn btn-success" id="submit">
+                  <span class="fa fa-search" id="basic-addon1"></span>
+              </button>
             </div>
           </div>
-        </form>
+        </div>
 
         <div id="lsoa-detail-panel" class="invisible">
           <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">

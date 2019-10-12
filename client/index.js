@@ -58,68 +58,74 @@ var styleFunction = function(feature) {
   return styles['Shade5'];
   return styles[feature.getGeometry().getType()];
 };
-getGeoJson().then(({ imds, geojson}) => {
-  lmd = imds;
-  var features = (new GeoJSON()).readFeatures(geojson);
-  var vectorSource = new VectorSource({
-    // features: (new GeoJSON()).readFeatures(geojsonObject)
-    features: features
-  });
-  var vectorLayer = new VectorLayer({
-    source: vectorSource,
-    style: styleFunction
-  });
 
-  // Interaction / Event Handlers
-  var select = new Select({
-    condition: click,
-    style: new Style({
-      stroke: new Stroke({
-        color: '#4a49ff',
-        width: 1,
-      }),
-      fill: new Fill({
-        color: '#4a49ff88',
-      }),
+// Interaction / Event Handlers
+var select = new Select({
+  condition: click,
+  style: new Style({
+    stroke: new Stroke({
+      color: '#4a49ff',
+      width: 1,
     }),
-  });
+    fill: new Fill({
+      color: '#4a49ff88',
+    }),
+  }),
+});
+  
+var map = new Map({
+  layers: [
+    new TileLayer({
+      source: new OSM()
+    }),
+  ],
+  target: 'map',
+  view: new View({
+    center: fromLonLat([-0.127758, 51.507351]),
+    zoom: 12
+  })
+});
 
-  var map = new Map({
-    layers: [
-      new TileLayer({
-        source: new OSM()
-      }),
-      vectorLayer
-    ],
-    target: 'map',
-    view: new View({
-      center: fromLonLat([-0.127758, 51.507351]),
-      zoom: 12
-    })
-  });
+document.getElementById('submit').addEventListener('click', e => {
+  e.preventDefault();
+  console.log(document.getElementById('postcode').value)
 
-  map.addInteraction(select);
+  getGeoJson().then(({ imds, geojson}) => {
+    lmd = imds;
+    var features = (new GeoJSON()).readFeatures(geojson);
+    var vectorSource = new VectorSource({
+      // features: (new GeoJSON()).readFeatures(geojsonObject)
+      features: features
+    });
+    var vectorLayer = new VectorLayer({
+      source: vectorSource,
+      style: styleFunction
+    });
 
-  select.on('select', function (e) {
-    var panel = document.getElementById('lsoa-detail-panel');
-    if (e && e.selected && e.selected.length) {
-      let values = e.selected[0].values_;
-      let lsoaCode = values.lsoa01cd;
-      var lmdData = lmd.find((lmd) => lmd.lsoa === lsoaCode);
-      if (lmdData) {
-        document.getElementById('lsoa-name').innerHTML = values.lsoa01nm;
+    map.addInteraction(select);
+    map.addLayer(vectorLayer);
+
+    select.on('select', function (e) {
+      var panel = document.getElementById('lsoa-detail-panel');
+      if (e && e.selected && e.selected.length) {
+        let values = e.selected[0].values_;
+        let lsoaCode = values.lsoa01cd;
+        var lmdData = lmd.find((lmd) => lmd.lsoa === lsoaCode);
+        if (lmdData) {
+          document.getElementById('lsoa-name').innerHTML = values.lsoa01nm;
+        } else {
+          document.getElementById('lsoa-name').innerHTML = 'No data';
+        }
+
+        renderLsoaDetail(lmdData, 'imd');
+        renderLsoaDetail(lmdData, 'income');
+
+        panel.classList.remove("invisible");
+
       } else {
-        document.getElementById('lsoa-name').innerHTML = 'No data';
+        panel.classList.add("invisible");
       }
-
-      renderLsoaDetail(lmdData, 'imd');
-      renderLsoaDetail(lmdData, 'income');
-
-      panel.classList.remove("invisible");
-
-    } else {
-      panel.classList.add("invisible");
-    }
+    });
   });
 });
 
@@ -169,6 +175,7 @@ function renderLsoaDetail(imdData, dataKey) {
     document.getElementById(dataKey + '-detail').innerHTML = 'No data';
   }
 }
+
 function formatNumber(num) {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
