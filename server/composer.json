@@ -1,7 +1,8 @@
 {
     "name": "cap/censusdata-server",
     "require": {
-        "mongodb/mongodb": "^1.5"
+        "mongodb/mongodb": "^1.5",
+        "jabranr/postcodes-io": "^1.0"
     },
     "autoload": {
         "psr-4": {
