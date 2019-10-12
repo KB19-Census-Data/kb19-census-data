@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-$data = ['a' => 1, 'b' => 2];
+require_once __DIR__ . '/../vendor/autoload.php';
 
-$json = json_encode($data);
+use KingdomCode\CensusData\App;
 
-header('Content-Type: application/json');
-
-echo($json);
+$app = new App();
+$app->run();
