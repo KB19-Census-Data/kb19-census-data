@@ -37,17 +37,41 @@ class PostcodeRepository
         ];
     }
 
-    public function getPostcodeRecsNearCoordinates(float $lat, float $long): Cursor
+    public function getPostcodeRecsNearCoordinates(float $lat, float $long, $miles = 2, $limit = 100)
     {
+//        $radians = $miles * 3963.192;
         $cursor = $this->database->command([
             'geoNear' => 'postcodes',
             'near' => [
-                'type' => 'Point',
-                // TODO ARE THESE THE RIGHT WAY ROUND?
-                'coordinates' => [$lat, $long],
+                $long,
+                $lat,
             ],
-            'spherical' => 'true',
-            'num' => 3,
+            'spherical' => 'true', // yes cos the earth isn't flat
+            'num' => $limit, // limit
+            'maxDistance' => $miles,
+            'distanceMultiplier' => 3963.192,
         ]);
+
+        $postcodes = [];
+        foreach ($cursor->toArray()[0]['results'] as $item) {
+            $postcodes[] = $item['obj']['pcd'];
+        }
+
+        return $postcodes;
+    }
+
+    public function getLSOAsForPostcodes(array $postcodes)
+    {
+        $cursor = $this->postcodeCollection->find([
+            'pcd' => ['$in' => $postcodes],
+        ]);
+
+        $lsoas = [];
+
+        foreach ($cursor as $item) {
+            $lsoas[] = $item['lsoa11'];
+        }
+
+        return $lsoas;
     }
 }
