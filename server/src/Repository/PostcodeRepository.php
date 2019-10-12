@@ -40,7 +40,7 @@ class PostcodeRepository
                 $long,
                 $lat,
             ],
-            'spherical' => 'false', // yes cos the earth isn't flat
+            'spherical' => 'true', // yes cos the earth isn't flat
             'num' => $limit, // limit
             'maxDistance' => $miles,
             'distanceMultiplier' => 3963.192,
