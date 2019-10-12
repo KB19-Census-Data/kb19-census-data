@@ -1,3 +1,8 @@
+// From: https://ons-inspire.esriuk.com/arcgis/rest/services/Census_Boundaries/Lower_Super_Output_Areas_December_2001_Boundaries/MapServer/2/query
+// ?outFields=objectid,lsoa01cd,lsoa01nm,lsoa01nmw,shape
+// &f=geojson
+// &where=lsoa01cd IN ('E01000001','E01000002')
+// &outSR=3857
 export default {
   "type": "FeatureCollection",
   "crs": {
